@@ -14,6 +14,14 @@ $params = [];
 
 /**
  * --------------------------------------------------------------------------
+ * Migrate Database
+ * --------------------------------------------------------------------------
+ * Uncomment to override the default migrate database parameter.
+ */
+$params['migrateDb'] = YII_ENV_DEV;
+
+/**
+ * --------------------------------------------------------------------------
  * Service Metadata Override
  * --------------------------------------------------------------------------
  * Modify service-level identifiers or title if needed.
