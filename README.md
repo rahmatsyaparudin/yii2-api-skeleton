@@ -49,10 +49,10 @@ composer update  OR composer update --ignore-platform-req=ext-mongodb
 
 ## 4. Copy skeleton scripts
 
-Copy the `scripts` folder from the package to your project root:
+Make directory `scripts` and Copy the `scripts` folder from the package to your project root:
 
 ```bash
-cp -r -Force vendor/rahmatsyaparudin/yii2-api-skeleton/scripts/* ./scripts
+mkdir scripts; cp -r -Force vendor/rahmatsyaparudin/yii2-api-skeleton/scripts/* ./scripts
 ```
 
 ## 5. Install the skeleton
