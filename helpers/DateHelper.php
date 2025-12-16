@@ -65,4 +65,43 @@ class DateHelper
 
         return (new \DateTime($date))->format(Yii::$app->params['timestamp']['UTC']);
     }
+
+    /**
+     * Converts UTC date string to local timezone format.
+     * 
+     * @param string|null $date Date string to convert
+     * @return string|null Formatted date or null if input is null
+     */
+    public static function utcToLocalDate($date)
+    {
+        if ($date === null) {
+            return null;
+        }
+
+        $dt = new \DateTime($date, new \DateTimeZone('UTC'));
+        $dt->setTimezone(new \DateTimeZone(Yii::$app->timeZone));
+
+        return $dt->format(Yii::$app->params['timestamp']['local']);
+    }
+
+    /**
+     * Converts local date string to UTC timezone format.
+     * 
+     * @param string|null $date Date string to convert
+     * @return string|null Formatted date or null if input is null
+     */
+    public static function localToUtcDate($date)
+    {
+        if ($date === null || $date === '') {
+            return null;
+        }
+
+        // Asumsikan input adalah waktu LOCAL (Asia/Jakarta / app timezone)
+        $dt = new \DateTime($date, new \DateTimeZone(Yii::$app->timeZone));
+
+        // Convert ke UTC
+        $dt->setTimezone(new \DateTimeZone('UTC'));
+
+        return $dt->format(Yii::$app->params['timestamp']['UTC']);
+    }
 }

@@ -1105,6 +1105,40 @@ class CoreModel
     }
 
     /**
+     * Converts local date string to UTC timezone format.
+     * Wrapper around DateHelper's localToUtcDate method.
+     *
+     * Usage:
+     * ```php
+     * $utcDate = CoreModel::localToUtcDate('2025-10-30 12:00:00');
+     * ```
+     *
+     * @param string|null $date Date string to convert
+     * @return string|null Formatted date or null if input is null
+     */
+    public static function localToUtcDate($date)
+    {
+        return \app\helpers\DateHelper::localToUtcDate($date);
+    }
+
+    /**
+     * Converts UTC date string to local timezone format.
+     * Wrapper around DateHelper's utcToLocalDate method.
+     *
+     * Usage:
+     * ```php
+     * $utcDate = CoreModel::utcToLocalDate('2025-10-30T12:00:00Z');
+     * ```
+     *
+     * @param string|null $date Date string to convert
+     * @return string|null Formatted date or null if input is null
+     */
+    public static function utcToLocalDate($date)
+    {
+        return \app\helpers\DateHelper::utcToLocalDate($date);
+    }
+
+    /**
      * Calculates the remaining time in hours and minutes.
      * Rounds the hours to one decimal place and converts to hours and minutes.
      *

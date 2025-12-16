@@ -29,6 +29,7 @@ return [
     'titleService' => 'Yii2 Boilerplate Core Service', // Human-readable service name
     'serviceVersion' => 'V1', // Service version
     'codeApp' => 'boilerplateCore', // Internal application code
+    'migrateDb' => false,
 
     // Default timezone and timestamp formats
     'timestamp' => [
