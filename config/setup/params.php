@@ -170,4 +170,4 @@ $params['meta'] = [
  * - params.php can replace or extend any core value.
  * - params_app.php only appends or adds new keys, does not override.
  */
-return array_merge_recursive($coreParams, $params, $appParams);
+return array_merge($coreParams, $params, $appParams);
