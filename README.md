@@ -19,6 +19,10 @@ Open your project's `composer.json` and add the following sections:
     {
         "type": "composer",
         "url": "https://asset-packagist.org"
+    },
+    {
+        "type": "vcs",
+        "url": "https://github.com/rahmatsyaparudin/yii2-api-skeleton.git"
     }
 ],
 "require-dev": {
@@ -35,7 +39,15 @@ Open your project's `composer.json` and add the following sections:
 }
 ```
 
-## 3. Copy skeleton scripts
+## 3. Update Composer untuk yii2-api-skeleton
+
+Run composer update for update:
+
+```bash
+composer update  OR composer update --ignore-platform-req=ext-mongodb
+```
+
+## 4. Copy skeleton scripts
 
 Copy the `scripts` folder from the package to your project root:
 
@@ -43,7 +55,7 @@ Copy the `scripts` folder from the package to your project root:
 cp -r -Force vendor/rahmatsyaparudin/yii2-api-skeleton/scripts/* ./scripts
 ```
 
-## 4. Install the skeleton
+## 5. Install the skeleton
 
 Run the custom Composer script to install the skeleton files:
 
@@ -53,7 +65,7 @@ composer skeleton-update
 
 This command will set up the necessary folder structure and example configurations in your project.
 
-## 5. Copy example files (first-time setup only)
+## 6. Copy example files (first-time setup only)
 
 Run this command only the first time you set up the skeleton:
 This will copy example configuration and code files to your project for reference and customization.
@@ -64,7 +76,7 @@ This will copy example configuration and code files to your project for referenc
 composer skeleton-copy-examples
 ```
 
-## 6. Dependensi Composer Utama
+## 7. Dependensi Composer Utama
 
 Skeleton will add the following dependencies to your `composer.json`:
 
@@ -76,7 +88,7 @@ Skeleton will add the following dependencies to your `composer.json`:
 
 Apply updates or re-install skeleton components without affecting your existing project code.
 
-## 7. Update Composer Dependencies
+## 8. Update Composer Dependencies
 Update all dependencies in `composer.json`:
 
 ```bash
