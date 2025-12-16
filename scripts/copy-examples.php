@@ -17,6 +17,7 @@ $filesToCopy = [
     "config/setup/console.php" => "config/console.php",
     "config/setup/web.php" => "config/web.php",
     "config/setup/db.php" => "config/db.php",
+    "config/setup/modules.php" => "config/modules.php",
     "config/setup/mongodb.php" => "config/mongodb.php",
     "config/setup/params.php" => "config/params.php",
     "config/setup/params_app.php" => "config/params_app.php",
