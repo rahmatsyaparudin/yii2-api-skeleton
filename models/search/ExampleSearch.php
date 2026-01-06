@@ -2,9 +2,17 @@
 
 namespace app\models\search;
 
+/**
+ * Yii required components
+ */
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use yii\helpers\ArrayHelper;
+
+/**
+ * Model required components
+ */
 use app\helpers\Constants;
 use app\core\CoreModel;
 use app\models\Example;
@@ -31,7 +39,7 @@ class ExampleSearch extends Example
      */
     public function rules()
     {
-        return array_merge(
+        return ArrayHelper::merge(
             [
                 [['id', 'status'], 'integer'],
                 [['name'], 'safe'],

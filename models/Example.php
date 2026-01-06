@@ -2,7 +2,16 @@
 
 namespace app\models;
 
+/**
+ * Yii required components
+ */
 use Yii;
+use yii\helpers\ArrayHelper;
+use yii\db\ActiveRecord;
+
+/**
+ * Model required components
+ */
 use app\core\CoreModel;
 use app\helpers\Constants;
 
@@ -15,7 +24,7 @@ use app\helpers\Constants;
  * @property string $detail_info
  * @property int|null $sync 1: unsync, null: synced
  */
-class Example extends \yii\db\ActiveRecord
+class Example extends ActiveRecord
 {
     /**
      * Menentukan database target secara dinamis.
@@ -63,7 +72,7 @@ class Example extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-        return array_merge(
+        return ArrayHelper::merge(
             [
                 [['detail_info'], 'safe'],
                 [['name'], 'string', 'max' => 255],
@@ -85,6 +94,7 @@ class Example extends \yii\db\ActiveRecord
         $scenarios = parent::scenarios();
         $scenarios[Constants::SCENARIO_CREATE] = ['name', 'status', 'detail_info', 'sync'];
         $scenarios[Constants::SCENARIO_UPDATE] = ['name', 'status', 'detail_info', 'sync'];
+        // $scenarios[Constants::SCENARIO_UPDATE] = $scenarios[Constants::SCENARIO_CREATE];
         $scenarios[Constants::SCENARIO_DELETE] = ['status', 'sync'];
 
         return $scenarios;

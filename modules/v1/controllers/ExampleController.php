@@ -2,20 +2,26 @@
 
 namespace app\modules\v1\controllers;
 
+/**
+ * Yii required components
+ */
 use Yii;
 use yii\web\Response;
 use yii\rest\Controller;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use app\helpers\Constants;
-use app\components\CustomException;
 use app\core\CoreController;
+
+/**
+ * Model required components
+ */
 use app\models\Example;
 use app\models\search\ExampleSearch;
 
 /**
  * Example controller for the `v1` module
  */
-
 class ExampleController extends CoreController
 {
 	public function behaviors()
@@ -23,7 +29,7 @@ class ExampleController extends CoreController
 		$behaviors = parent::behaviors();
 
 		#add your action here
-		$behaviors['verbs']['actions'] = array_merge(
+		$behaviors['verbs']['actions'] = ArrayHelper::merge(
 			$behaviors['verbs']['actions'],
 			[
 				'index' => ['get'],
@@ -45,36 +51,40 @@ class ExampleController extends CoreController
 		return CoreController::coreData($dataProvider);
 	}
 
-	public function actionList()
-	{
-		#uncomment below code if you want to show data from mongodb
-		// $params = Yii::$app->getRequest()->getBodyParams();
+	/**
+	 * Example for using mongodb (optional)
+	 */
+	// public function actionList()
+	// {
+	// 	$params = Yii::$app->getRequest()->getBodyParams();
 
-		// $searchModel = new ExampleSearch();
-		// $searchModel->load($params);
-		// $dataProvider = $searchModel->mongodbSearch($params);
+	// 	$searchModel = new ExampleSearch();
+	// 	$searchModel->load($params);
+	// 	$dataProvider = $searchModel->mongodbSearch($params);
 
-		// CoreController::validateProvider($dataProvider, $searchModel);
+	// 	CoreController::validateProvider($dataProvider, $searchModel);
 
-		// return CoreController::coreData($dataProvider);
-	}
+	// 	return CoreController::coreData($dataProvider);
+	// }
 
-	// Another connection example
-	public function actionDynamicDb()
-	{
-		$params = Yii::$app->getRequest()->getBodyParams();
+	/**
+	 * Example for using another database connection (optional)
+	 */
+	// public function actionDynamicDb()
+	// {
+	// 	$params = Yii::$app->getRequest()->getBodyParams();
 
-		// use this to use or switch another database connection
-		$connectionName = Yii::$app->coreAPI::dbConnectionTarget($params);
-		Example::useDb($connectionName);
+	// 	// use this to use or switch another database connection
+	// 	$connectionName = Yii::$app->coreAPI::dbConnectionTarget($params);
+	// 	Example::useDb($connectionName);
 
-		$searchModel = new ExampleSearch();
-		$dataProvider = $searchModel->search($params);
+	// 	$searchModel = new ExampleSearch();
+	// 	$dataProvider = $searchModel->search($params);
 
-		CoreController::validateProvider($dataProvider, $searchModel);
+	// 	CoreController::validateProvider($dataProvider, $searchModel);
 
-		return CoreController::coreData($dataProvider);
-	}
+	// 	return CoreController::coreData($dataProvider);
+	// }
 
 	public function actionCreate()
 	{

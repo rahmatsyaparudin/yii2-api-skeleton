@@ -2,7 +2,15 @@
 
 namespace app\models\query;
 
+/**
+ * Yii required components
+ */
 use yii\db\ActiveQuery;
+use yii\helpers\ArrayHelper;
+
+/**
+ * Model required components
+ */
 use app\helpers\Constants;
 
 /**

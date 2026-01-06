@@ -7,76 +7,38 @@
 ## 1. Install Yii2
 
 ```bash
-composer create-project --prefer-dist yiisoft/yii2-app-basic myapp
+composer create-project --prefer-dist yiisoft/yii2-app-basic ./
 ```
 
 ## 2. Add the repository and package to `composer.json`
 
 Open your project's `composer.json` and add the following sections:
 
+### Add this to `composer.json` `repositories`
 ```json
-"repositories": [
-    {
-        "type": "composer",
-        "url": "https://asset-packagist.org"
-    },
-    {
-        "type": "vcs",
-        "url": "https://github.com/rahmatsyaparudin/yii2-api-skeleton.git"
-    }
-],
-"require-dev": {
-    "rahmatsyaparudin/yii2-api-skeleton": "dev-main"
-},
-"scripts": {
-    "skeleton-update": [
-        "composer update rahmatsyaparudin/yii2-api-skeleton --ignore-platform-reqs",
-        "php scripts/install-skeleton.php"
-    ],
-    "skeleton-copy-examples": [
-        "php scripts/copy-examples.php"
-    ]
+{
+    "type": "vcs",
+    "url": "https://github.com/rahmatsyaparudin/yii2-api-skeleton.git"
 }
 ```
 
-## 3. Update Composer untuk yii2-api-skeleton
-
-Run composer update for update:
-
-```bash
-composer update  OR composer update --ignore-platform-req=ext-mongodb
+### Add this to `composer.json` `require-dev`
+```json
+"rahmatsyaparudin/yii2-api-skeleton": "dev-main"
 ```
 
-## 4. Copy skeleton scripts
-
-Make directory `scripts` and Copy the `scripts` folder from the package to your project root:
-
-```bash
-mkdir scripts; cp -r -Force vendor/rahmatsyaparudin/yii2-api-skeleton/scripts/* ./scripts
+### Add this to `composer.json` `scripts`
+```json
+"skeleton-update": [
+    "composer update rahmatsyaparudin/yii2-api-skeleton --ignore-platform-reqs",
+    "php scripts/install-skeleton.php"
+],
+"skeleton-copy-examples": [
+    "php scripts/copy-examples.php"
+]
 ```
 
-## 5. Install the skeleton
-
-Run the custom Composer script to install the skeleton files:
-
-```bash
-composer skeleton-update
-```
-
-This command will set up the necessary folder structure and example configurations in your project.
-
-## 6. Copy example files (first-time setup only)
-
-Run this command only the first time you set up the skeleton:
-This will copy example configuration and code files to your project for reference and customization.
-
-## Usage
-
-```bash
-composer skeleton-copy-examples
-```
-
-## 7. Dependensi Composer Utama
+## 3. Dependensi Composer Utama
 
 Skeleton will add the following dependencies to your `composer.json`:
 
@@ -86,13 +48,50 @@ Skeleton will add the following dependencies to your `composer.json`:
 - `paragonie/sodium_compat`: `^2.0`
 - `vlucas/phpdotenv`: `^5.6`
 
+## 4. Update Composer untuk yii2-api-skeleton
+
+Run composer update for update:
+
+```bash
+composer update --ignore-platform-reqs
+```
+
+## 5. Copy skeleton scripts
+
+Make directory `scripts` and Copy the `scripts` folder from the package to your project root:
+
+```bash
+mkdir scripts; cp -r -Force vendor/rahmatsyaparudin/yii2-api-skeleton/scripts/* ./scripts
+```
+
+## 6. Install the skeleton
+
+Run the custom Composer script to install the skeleton files:
+
+```bash
+composer skeleton-update
+```
+
+This command will set up the necessary folder structure and example configurations in your project.
+
+## 7. Copy example files (first-time setup only)
+
+Run this command only the first time you set up the skeleton:
+This will copy example configuration and code files to your project for reference and customization.
+
+## 8. Usage
+
+```bash
+composer skeleton-copy-examples
+```
+
 Apply updates or re-install skeleton components without affecting your existing project code.
 
-## 8. Update Composer Dependencies
+## 9. Update Composer Dependencies
 Update all dependencies in `composer.json`:
 
 ```bash
-composer update
+composer update --ignore-platform-reqs
 ```
 
 ## Notes

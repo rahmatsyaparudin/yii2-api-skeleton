@@ -19,6 +19,13 @@ return [
     'lockVersionOutdated' => 'The data being updated is outdated. Please refresh the page and try again.',
     'unknownError' => 'An unknown error occurred.',
 
+    #General Authentication Rules
+    'loginRequired' => 'You must login to perform this action.',
+    'logoutSuccess' => 'You have been logged out successfully.',
+    'logoutFailed' => 'Failed to logout.',
+    'loginSuccess' => 'You have been logged in successfully.',
+    'loginFailed' => 'Failed to login.',
+
     #General Records Rules
     'createRecordSuccess' => 'Data has been saved successfully.',
     'createRecordFailed' => 'Failed to save data.',
