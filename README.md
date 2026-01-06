@@ -79,15 +79,13 @@ This command will set up the necessary folder structure and example configuratio
 Run this command only the first time you set up the skeleton:
 This will copy example configuration and code files to your project for reference and customization.
 
-## 8. Usage
-
 ```bash
 composer skeleton-copy-examples
 ```
 
 Apply updates or re-install skeleton components without affecting your existing project code.
 
-## 9. Update Composer Dependencies
+## 8. Update Composer Dependencies
 Update all dependencies in `composer.json`:
 
 ```bash
